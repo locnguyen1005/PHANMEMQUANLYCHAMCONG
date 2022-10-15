@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLChamCongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="MaCT" />
+    </Key>
+    <Property Name="MaCT" Type="int" Nullable="false" />
+    <Property Name="TenCT" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ChiNhanh" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SLNV" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="MaPB" />
+    </Key>
+    <Property Name="MaPB" Type="int" Nullable="false" />
+    <Property Name="TenPB" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TenNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="50" />
+    <Property Name="Matkhau" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tuoi" Type="int" />
+    <Property Name="SDT" Type="int" />
+    <Property Name="MaCV" Type="int" />
+    <Property Name="MaPB" Type="int" />
+    <Property Name="MaCT" Type="int" />
+    <Property Name="MaLuong" Type="int" />
+  </EntityType>
+  <EntityType Name="salary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="total" Type="bigint" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="timekeeping">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Ngay" Type="date" />
+  </EntityType>
+  <EntityType Name="timekeepingdetails">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+      <PropertyRef Name="timekeepingID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="timekeepingID" Type="int" Nullable="false" />
+    <Property Name="checkin" Type="time" Precision="7" />
+    <Property Name="checkout" Type="time" Precision="7" />
+    <Property Name="dayoff" Type="bit" />
+    <Property Name="overtime" Type="int" />
+  </EntityType>
+  <EntityType Name="Userole">
+    <Key>
+      <PropertyRef Name="MaCV" />
+    </Key>
+    <Property Name="MaCV" Type="int" Nullable="false" />
+    <Property Name="TenCV" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Employee__MaCT__2C3393D0">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="MaCT" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="MaCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__MaCV__2E1BDC42">
+    <End Role="Userole" Type="Self.Userole" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Userole">
+        <PropertyRef Name="MaCV" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="MaCV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__MaLuon__2F10007B">
+    <End Role="salary" Type="Self.salary" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salary">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="MaLuong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__MaPB__2D27B809">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="MaPB" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="MaPB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__timekeepi__Emplo__33D4B598">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="timekeepingdetails" Type="Self.timekeepingdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="timekeepingdetails">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__timekeepi__timek__34C8D9D1">
+    <End Role="timekeeping" Type="Self.timekeeping" Multiplicity="1" />
+    <End Role="timekeepingdetails" Type="Self.timekeepingdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="timekeeping">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="timekeepingdetails">
+        <PropertyRef Name="timekeepingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLChamCongModelStoreContainer">
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="salary" EntityType="Self.salary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="timekeeping" EntityType="Self.timekeeping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="timekeepingdetails" EntityType="Self.timekeepingdetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Userole" EntityType="Self.Userole" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Employee__MaCT__2C3393D0" Association="Self.FK__Employee__MaCT__2C3393D0">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__MaCV__2E1BDC42" Association="Self.FK__Employee__MaCV__2E1BDC42">
+      <End Role="Userole" EntitySet="Userole" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__MaLuon__2F10007B" Association="Self.FK__Employee__MaLuon__2F10007B">
+      <End Role="salary" EntitySet="salary" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__MaPB__2D27B809" Association="Self.FK__Employee__MaPB__2D27B809">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__timekeepi__Emplo__33D4B598" Association="Self.FK__timekeepi__Emplo__33D4B598">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="timekeepingdetails" EntitySet="timekeepingdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__timekeepi__timek__34C8D9D1" Association="Self.FK__timekeepi__timek__34C8D9D1">
+      <End Role="timekeeping" EntitySet="timekeeping" />
+      <End Role="timekeepingdetails" EntitySet="timekeepingdetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

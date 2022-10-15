@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="adecf9aebd9645de9dbd8b07f6ab5058" Name="Diagram1">
+        <EntityTypeShape EntityType="QLChamCongModel.Company" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLChamCongModel.Department" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLChamCongModel.Employee" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLChamCongModel.salary" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLChamCongModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLChamCongModel.timekeeping" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLChamCongModel.timekeepingdetails" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLChamCongModel.Userole" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="QLChamCongModel.FK__Employee__MaCT__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="QLChamCongModel.FK__Employee__MaPB__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="QLChamCongModel.FK__Employee__MaCV__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="QLChamCongModel.FK__Employee__MaLuon__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLChamCongModel.FK__timekeepi__Emplo__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="QLChamCongModel.FK__timekeepi__timek__34C8D9D1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,17 @@
+E:\DoAn1\BUSChamCong\bin\Debug\BUSChamCong.dll.config
+E:\DoAn1\BUSChamCong\bin\Debug\BUSChamCong.dll
+E:\DoAn1\BUSChamCong\bin\Debug\BUSChamCong.pdb
+E:\DoAn1\BUSChamCong\bin\Debug\DALChamCong.dll
+E:\DoAn1\BUSChamCong\bin\Debug\EntityFramework.dll
+E:\DoAn1\BUSChamCong\bin\Debug\DALChamCong.pdb
+E:\DoAn1\BUSChamCong\bin\Debug\DALChamCong.dll.config
+E:\DoAn1\BUSChamCong\bin\Debug\EntityFramework.xml
+E:\DoAn1\BUSChamCong\obj\Debug\BUSChamCong.csproj.AssemblyReference.cache
+E:\DoAn1\BUSChamCong\obj\Debug\BUSChamCong.csproj.CoreCompileInputs.cache
+E:\DoAn1\BUSChamCong\obj\Debug\BUSChamCong.csproj.CopyComplete
+E:\DoAn1\BUSChamCong\obj\Debug\BUSChamCong.dll
+E:\DoAn1\BUSChamCong\obj\Debug\BUSChamCong.pdb
+E:\DoAn1\BUSChamCong\bin\Debug\EntityFramework.SqlServer.dll
+E:\DoAn1\BUSChamCong\bin\Debug\EntityFramework.SqlServer.xml
+E:\DoAn1\BUSChamCong\bin\Debug\DTO.dll
+E:\DoAn1\BUSChamCong\bin\Debug\DTO.pdb
